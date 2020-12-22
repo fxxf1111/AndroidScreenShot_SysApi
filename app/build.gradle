@@ -15,11 +15,21 @@ android {
     lintOptions {
         abortOnError false
     }
-
+    signingConfigs {
+        release {
+            storeFile file("TestKey.jks")
+            storePassword "123321"
+            keyAlias "Test"
+            keyPassword "123321"
+        }
+    }
     buildTypes {
         release {
-            minifyEnabled false
+            shrinkResources true  //删除没有用到的资源，如果apk动态读取资源，未声明使用某资源，可能出错
+            zipAlignEnabled true  //zipalign是Android SDK中的工具，它能够对打包的应用程序进行优化。
+            minifyEnabled true   //去掉未使用的方法和类，表示启用混淆
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         debug{
             minifyEnabled false
