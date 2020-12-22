@@ -5,6 +5,8 @@
 
     <!--it is necessary-->
     <uses-sdk tools:overrideLibrary="com.androidyuan.lib"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"

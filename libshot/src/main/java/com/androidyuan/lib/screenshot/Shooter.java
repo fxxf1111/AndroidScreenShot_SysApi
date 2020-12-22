@@ -14,10 +14,12 @@ import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
@@ -53,8 +55,14 @@ public class Shooter {
     //using a default path.
     private String getSavedPath() {
         if (TextUtils.isEmpty(mLocalUrl)) {
-            mLocalUrl = getContext().getExternalFilesDir("screenshot").getAbsoluteFile() + "/"
-                    + SystemClock.currentThreadTimeMillis() + ".png";
+//            mLocalUrl = getContext().getExternalFilesDir("screenshot").getAbsoluteFile() + "/"
+//                    + SystemClock.currentThreadTimeMillis() + ".png";
+
+            mLocalUrl = Environment.getExternalStorageDirectory()
+                    +
+                    "/Pictures/ScreenShots/"
+                    +
+                    SystemClock.currentThreadTimeMillis() + ".png";
         }
         return mLocalUrl;
     }
@@ -163,7 +171,13 @@ public class Shooter {
             if (bitmap != null) {
                 try {
                     fileImage = new File(getSavedPath());
-
+                    Log.d("test111","fileImage = "+fileImage.getAbsolutePath());
+                    File parentFile = fileImage.getParentFile();
+                    Log.d("test111","parentFile = "+parentFile.getAbsolutePath());
+                    if (!parentFile.exists()){
+                        Log.d("test111","parentFile.mkdirs();");
+                        parentFile.mkdirs();
+                    }
                     if (!fileImage.exists()) {
                         fileImage.createNewFile();
                     }
