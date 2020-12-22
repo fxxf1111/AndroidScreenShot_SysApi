@@ -43,7 +43,12 @@ public class ExampleActivity extends AppCompatActivity {
      * @param view
      */
     public void onClickShot(View view) {
-        startActivityForResult(ScreenShotActivity.createIntent(this, null,0), REQ_CODE_ACT);
+        startActivityForResult(ScreenShotActivity.createIntent(this, null,5000), REQ_CODE_ACT);
+        toast("Press home key,open another app.");//if you want to take screenshot on another app.
+    }
+
+    public void onClickShot10(View view) {
+        startActivityForResult(ScreenShotActivity.createIntent(this, null,10000), REQ_CODE_ACT);
         toast("Press home key,open another app.");//if you want to take screenshot on another app.
     }
 

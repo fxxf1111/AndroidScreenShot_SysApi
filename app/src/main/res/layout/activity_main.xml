@@ -15,14 +15,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickReqPermission"
-        android:text="Using Shooter class" />
+        android:text="立即截图" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickShot"
-        android:text="Using Activity"/>
+        android:text="延迟5秒"/>
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickShot10"
+        android:text="延迟10秒"/>
 
 </LinearLayout>
