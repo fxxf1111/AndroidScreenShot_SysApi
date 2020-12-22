@@ -7,6 +7,7 @@
     <uses-sdk tools:overrideLibrary="com.androidyuan.lib"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +22,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name="com.androidyuan.lib.screenshot.ScreenShotActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="androidyuan.shotter"></action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name="TileService"
+            android:icon="@mipmap/icon"
+            android:label="ScreenShots"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
 
     </application>
 
