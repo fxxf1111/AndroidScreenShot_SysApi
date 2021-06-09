@@ -81,6 +81,6 @@ public class TileService extends android.service.quicksettings.TileService {
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
             }
-        }, 1000);//这里留足够的时间切换到别的app
+        }, 5000);//这里留足够的时间切换到别的app
     }
 }

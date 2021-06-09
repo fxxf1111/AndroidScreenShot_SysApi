@@ -17,16 +17,17 @@
         tools:overrideLibrary="com.androidyuan.lib"
         android:theme="@style/AppTheme">
         <activity android:name=".ExampleActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name="com.androidyuan.lib.screenshot.ScreenShotActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Dialog">
             <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="androidyuan.shotter"></action>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

@@ -80,11 +80,11 @@ public class ExampleActivity extends AppCompatActivity {
      * This is an example for using Shooter.
      * This method will request permission and take screenshot on this Activity.
      */
-    public void onClickReqPermission(View view) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            startActivityForResult(createScreenCaptureIntent(), REQ_CODE_PER);
-        }
-    }
+//    public void onClickReqPermission(View view) {
+//        if (Build.VERSION.SDK_INT >= 21) {
+//            startActivityForResult(createScreenCaptureIntent(), REQ_CODE_PER);
+//        }
+//    }
 
     /**
      * using {@see ScreenShotActivity} to take screenshot on current Activity directly.
@@ -93,13 +93,13 @@ public class ExampleActivity extends AppCompatActivity {
      */
     public void onClickShot(View view) {
         startActivityForResult(ScreenShotActivity.createIntent(this, null,5000), REQ_CODE_ACT);
-        toast("Press home key,open another app.");//if you want to take screenshot on another app.
+//        toast("Press home key,open another app.");//if you want to take screenshot on another app.
     }
 
-    public void onClickShot10(View view) {
-        startActivityForResult(ScreenShotActivity.createIntent(this, null,10000), REQ_CODE_ACT);
-        toast("Press home key,open another app.");//if you want to take screenshot on another app.
-    }
+//    public void onClickShot10(View view) {
+//        startActivityForResult(ScreenShotActivity.createIntent(this, null,10000), REQ_CODE_ACT);
+//        toast("Press home key,open another app.");//if you want to take screenshot on another app.
+//    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -124,10 +124,10 @@ public class ExampleActivity extends AppCompatActivity {
 
             case REQ_CODE_ACT: {
                 if (resultCode == RESULT_OK && data != null) {
-                    toast("Screenshot saved at " + data.getData().toString());
+//                    toast("Screenshot saved at " + data.getData().toString());
                 }
                 else{
-                    toast("You got wrong.");
+//                    toast("You got wrong.");
                 }
             }
             break;
@@ -138,12 +138,12 @@ public class ExampleActivity extends AppCompatActivity {
                                 @Override
                                 public void onFinish(String path) {
                                     //here is done status.
-                                    toast("Screenshot saved at " + path);
+//                                    toast("Screenshot saved at " + path);
                                 }
 
                                 @Override
                                 public void onError() {
-                                    toast("You got wrong.");
+//                                    toast("You got wrong.");
                                 }
                             }
                     );
